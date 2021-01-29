@@ -1,6 +1,6 @@
 #!/bin/bash
 # author lazhar.bk@gmail.com ;)
-# ./script.sh src dis ret
+# ./script.sh /source /destination retention 2>> error.log
 
 #source
 src=$1;
