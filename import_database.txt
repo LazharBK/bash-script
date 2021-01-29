@@ -1,0 +1,4 @@
+** import database **
+#> zcat database.sql.gz | mysql -u root -p database_name
+or
+#> unzip -p database.zip | mysql -u root -p database_name
