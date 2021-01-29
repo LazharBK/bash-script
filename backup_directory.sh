@@ -16,7 +16,7 @@ cd $dname;
 uqname=$fname-$(date +%Y%m%d%H%M).zip;
 zip -rq $dis/$uqname.tar.gz $fname;
 echo "new backup created in $dis/$uqname";
-#tar czf - $src | lftp ftp://ns3011461.ip-188-165-229.eu:NfFYv85MSI@ftpback-rbx3-543.mybackup.ovh.net:21 -e "cd $dis; put /dev/stdin -o $fname-$(date +%Y%m%d%H%M).tar.gz;quit"
+#tar czf - $src | lftp ftp://username:password@ftpback-rbx3-543.mybackup.ovh.net:21 -e "cd $dis; put /dev/stdin -o $fname-$(date +%Y%m%d%H%M).tar.gz;quit"
 nret=$(find "$dis" -maxdepth 1 -iname "$fname*" -type f 2> /dev/null | wc -l);
 #nret=$(find "$dis" -iname "$fname*" -type f 2> /dev/null | wc -l);
 if [ $ret -lt $nret ]; then
