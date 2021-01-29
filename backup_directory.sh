@@ -1,5 +1,5 @@
 #!/bin/bash
-# auther lazhar.bk@gmail.com ;)
+# author lazhar.bk@gmail.com ;)
 # ./script.sh src dis ret
 
 #source
