@@ -1,0 +1,29 @@
+https://www.linuxbabe.com/redhat/set-up-samba-server-on-centos-8-rhel-8-for-file-sharing
+
+sudo dnf install samba samba-common samba-client //install
+nano /etc/samba/smb.conf // config
+------------------------------------------
+[wwwshare]
+        path = /www/wwwroot
+        wide links = yes
+#       read only = no
+#       browseable = yes
+#       guest ok = no
+        valid users = root
+#       force user = root
+#       force group = root
+        browseable = yes
+        writeable = yes
+#       admin users = root
+#       public = yes
+#       create mask = 0755
+#       directory mask = 0755
+--------------------------------------------
+sudo firewall-cmd --permanent --add-service=samba //open the above ports in the firewall
+sudo systemctl reload firewalld
+
+sudo systemctl start smb nmb //start the smbd and nmbd service.
+sudo systemctl enable smb nmb //Enable auto-start at boot time.
+
+systemctl restart {smb,nmb} // If you went to restart samba 
+smbpasswd -a root // set password root
