@@ -13,8 +13,8 @@ fname=$(basename -- $src);
 dname=$(dirname -- $src);
 cd $dname;
 #unique file name
-uqname=$fname-$(date +%Y%m%d%H%M).zip;
-zip -rq $dis/$uqname.tar.gz $fname;
+uqname=$fname-$(date +%Y%m%d%H%M);
+zip -rq $dis/$uqname.zip $fname;
 echo "new backup created in $dis/$uqname";
 #tar czf - $src | lftp ftp://username:password@ftpback-rbx3-543.mybackup.ovh.net:21 -e "cd $dis; put /dev/stdin -o $fname-$(date +%Y%m%d%H%M).tar.gz;quit"
 nret=$(find "$dis" -maxdepth 1 -iname "$fname*" -type f 2> /dev/null | wc -l);
