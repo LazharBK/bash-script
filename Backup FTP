@@ -1,0 +1,20 @@
+*** OVH exemple server***
+Les paramètres de connexion au serveur FTP sont:
+
+login: ns12345678.ip-11-22-333.eu
+mot de passe: AnyPassword
+Serveur ftp: ftpback-rbx0-000.ovh.net
+Serveur lftp (change)	: ftpback-rbx0-000.mybackup.ovh.net
+terminal command:~# lftp ftp://ns12345678.ip-11-22-333.eu:AnyPassword@ftpback-rbx0-000.mybackup.ovh.net:21
+
+lftp ftp://ns12345678.ip-11-22-333.eu:AnyPassword@ftpback-rbx0-000.mybackup.ovh.net:21
+
+
+lftp ftp://ns12345678.ip-11-22-333.eu:AnyPassword@ftpback-rbx0-000.mybackup.ovh.net:21 -e "mirror -e -R /home/cloudpanel/backups /backup ; quit"
+
+** Backup **
+lftp ftp://identifiant:mot_de_passe@site_de_connexion -e "mirror -e -R -x dossier_ignoré -x dossier_ignoré /emplacement_local /emplacement_distant ; quit"
+** Restore **
+lftp ftp://identifiant:mot_de_passe@site_de_connexion -e "mirror -e -x dossier_ignoré -x dossier_ignoré /emplacement_distant /emplacement_local ; quit"
+** alias **
+alias maj_site='lftp ftp://moi:motdepasse@ftp.perso.com -e "mirror -e -R -x gestion/exemples/ -x documents/multimedia/musique/ /var/www/mon_site/ / ; quit"'
